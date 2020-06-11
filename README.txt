@@ -30,7 +30,7 @@ determine which operation to be executed
 
 4. Guide of how to use: 
 
-VER 1: 
+VER 1: Code in 3rd commit
 
 - See Redux-Flow.pdf for understanding of the work Flow
 - See redux-basic.js. This is the script that contains all 
