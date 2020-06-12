@@ -86,9 +86,9 @@ See how action types are outSourced
 Step 2: look in reducer.js and Counter.js to see how we import and use 
 it
 
-VER 4: Combining multiple reducer
+VER 4: Combining multiple reducer, when to use redux
 -----------------------------------------------------------------
-code in 7th commit
+code in 8th commit
 
 - store/reducer.js file is eliminated, seperating 2 parts into 
 reducers/counter.js and reducer/result.js
@@ -104,3 +104,5 @@ IMPORTANT TO NOTICE: the state keyword in any of the script refer to
 the global state, not only the state of reducer or the current file. 
 To access the state in the current file, try this.state
 
+WHEN TO USE REDUX: 
+see lecture 269 and State-Types.pdf
