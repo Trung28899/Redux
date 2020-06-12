@@ -31,7 +31,9 @@ determine which operation to be executed
 4. Guide of how to use: 
 
 VER 1: Basic setup, how to dispatch ACTION and the use of REDUCER
+-----------------------------------------------------------------
 Code in 3rd commit
+
 
 - See Redux-Flow.pdf for understanding of the work Flow
 - See redux-basic.js. This is the script that contains all 
@@ -51,7 +53,7 @@ automatically and update state as props in COMPONENT
 VER 2: Passing dispatch data with action, 
 updating state (in reducer) immutably, 
 updating array (in reducer) immutably
-
+-----------------------------------------------------------------
 Code in 5th Commit
 
 - When updating state in the CENTRAL STORE, we return a whole new 
@@ -64,4 +66,23 @@ state. Note that the onDeleteResults() is not implemented
 
 Step 2: See reducer.js to see how to update state immutably
 and update array immutably
+
+Documents on immutably update: 
+https://redux.js.org/recipes/structuring-reducers/immutable-update-patterns/
+
+
+VER 3: Out Sourcing action types
+-----------------------------------------------------------------
+Code in 6th Commit
+
+- Previously action type was hardcoded to match one another in 
+reducer.js and Counter.js. In big application, if we misSpell one 
+word, it'll be very hard to find the bug. 
+- That's why we export outSource the action type to avoid this issue
+
+Step 1: look in store/actions.js 
+See how action types are outSourced
+
+Step 2: look in reducer.js and Counter.js to see how we import and use 
+it
 
