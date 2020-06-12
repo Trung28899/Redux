@@ -86,3 +86,21 @@ See how action types are outSourced
 Step 2: look in reducer.js and Counter.js to see how we import and use 
 it
 
+VER 4: Combining multiple reducer
+-----------------------------------------------------------------
+code in 7th commit
+
+- store/reducer.js file is eliminated, seperating 2 parts into 
+reducers/counter.js and reducer/result.js
+
+Step 1: see index.js to understand how to import and combine 
+2 different reducers. notice that counter.js is assigned as ctr
+and result.js is assigned as res
+
+Step 2: see Counter.js, notice how the properties in mapStateToProps() 
+got assigned
+
+IMPORTANT TO NOTICE: the state keyword in any of the script refer to 
+the global state, not only the state of reducer or the current file. 
+To access the state in the current file, try this.state
+
