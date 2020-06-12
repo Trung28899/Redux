@@ -30,7 +30,8 @@ determine which operation to be executed
 
 4. Guide of how to use: 
 
-VER 1: Code in 3rd commit
+VER 1: Basic setup, how to dispatch ACTION and the use of REDUCER
+Code in 3rd commit
 
 - See Redux-Flow.pdf for understanding of the work Flow
 - See redux-basic.js. This is the script that contains all 
@@ -46,4 +47,21 @@ Step 1: open index.js. See the setups (import, store, provider)
 Step 2: See Counter.js to see how components dispatch an ACTION, 
 see reducer.js to see how REDUCER works. The subscription is done
 automatically and update state as props in COMPONENT
+
+VER 2: Passing dispatch data with action, 
+updating state (in reducer) immutably, 
+updating array (in reducer) immutably
+
+Code in 5th Commit
+
+- When updating state in the CENTRAL STORE, we return a whole new 
+object as state using the data of the old state. We shouldn't 
+modify the old state and return it. It will cause some unpredictable
+behavior in the appllication. See reducer.js for example
+
+Step 1: See Counter.js to see how to dispatch properly to update
+state. Note that the onDeleteResults() is not implemented
+
+Step 2: See reducer.js to see how to update state immutably
+and update array immutably
 

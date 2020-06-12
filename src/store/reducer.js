@@ -1,33 +1,58 @@
 const initialState = {
   counter: 0,
+  results: [],
 };
 
 const reducer = (state = initialState, action) => {
-  if (action.type === "INCREMENT") {
-    return {
-      counter: state.counter + 1,
-    };
-  }
+  // Doesn't need break here cause return already do the work
+  switch (action.type) {
+    case "INCREMENT":
+      const newState = Object.assign({}, state);
+      newState.counter = state.counter + 1;
+      return newState;
 
-  if (action.type === "DECREMENT") {
-    return {
-      counter: state.counter - 1,
-    };
-  }
+    case "DECREMENT":
+      return {
+        ...state,
+        counter: state.counter - 1,
+      };
 
-  if (action.type === "ADD") {
-    return {
-      counter: state.counter + 5,
-    };
-  }
+    case "ADD":
+      return {
+        ...state,
+        counter: state.counter + action.val,
+      };
 
-  if (action.type === "SUBTRACT") {
-    return {
-      counter: state.counter - 5,
-    };
-  }
+    case "SUBTRACT":
+      return {
+        ...state,
+        counter: state.counter - action.val,
+      };
+    case "STORE_RESULT":
+      return {
+        ...state,
+        results: state.results.concat({ id: new Date(), value: state.counter }),
+      };
+    case "DELETE_RESULT":
+      // 1st way of updating array: with newArray variable
+      // const newArray = [...state.results];
+      // const id = 2;
+      // newArray.splice(id, 1);
 
-  return state;
+      // 2nd way of updating array: with updatedArray variable
+      // argument true in filter > get the value,
+      // argument false in filter > don't get the value
+      const updatedArray = state.results.filter(
+        (result) => result.id !== action.resultElId
+      );
+      return {
+        ...state,
+        // results: newArray,
+        results: updatedArray,
+      };
+    default:
+      return state;
+  }
 };
 
 export default reducer;
